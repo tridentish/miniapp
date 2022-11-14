@@ -14,11 +14,16 @@ spring:
       #上传开关
       enabled: true
       #最大上传文件大小
-      max-file-size: 200MB
-      max-request-size: 200MB
+      max-file-size: 20MB
+      max-request-size: 20MB
+  redis:
+    host: localhost
+    port: 6379
 
 mybatis-plus:
   global-config:
     db-config:
       #id自增
       id-type: auto
+
+

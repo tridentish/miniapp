@@ -4,10 +4,12 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.itwu.entity.Administrator;
 import com.itwu.entity.R;
 import com.itwu.service.AdministratorService;
+import com.itwu.service.LoginService;
 import com.itwu.service.UserService;
 import com.sun.org.apache.bcel.internal.generic.RETURN;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,10 +25,13 @@ public class AdministratorController {
     private AdministratorService administratorService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private LoginService loginService;
 
     //员工登入
+    //HttpServletRequest request,
     @PostMapping("/login")
-    public R<Administrator> login(HttpServletRequest request, @RequestBody Administrator administrator){
+    public R<Administrator> login( @RequestBody Administrator administrator){
         //加密
         String password=administrator.getPassword();
         //password=DigestUtils.md5DigestAsHex(password.getBytes());
@@ -42,9 +47,9 @@ public class AdministratorController {
             return new R<>(false,"密码错误");
         }
 
-        request.getSession().setAttribute("administrator",administrator.getAccount());
+        //request.getSession().setAttribute("administrator",administrator.getAccount());
 
-        return new R<>(true,tmp);
+        return loginService.login(administrator);
     }
 
 }

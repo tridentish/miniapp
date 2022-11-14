@@ -23,4 +23,10 @@ public class R<T> {
         this.flag=flag;
         this.msg=msg;
     }
+    //知道所有
+    public R(boolean flag,Object data,String msg ){
+        this.flag=flag;
+        this.data=data;
+        this.msg=msg;
+    }
 }

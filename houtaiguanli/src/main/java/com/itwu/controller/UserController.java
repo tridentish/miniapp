@@ -32,7 +32,7 @@ public class UserController {
     @PutMapping()
     public R updateUser(@RequestBody User user){
         //修改用户信息
-        return new R(true,userService.updateById(user));
+        return new R(userService.updateById(user));
     }
 
     @PostMapping

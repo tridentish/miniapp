@@ -35,7 +35,7 @@ public class UserController {
         return new R(userService.updateById(user));
     }
 
-    @PostMapping
+    @DeleteMapping
     public R deleteMany(@RequestBody List<Integer> ids){
         //按id数组批量删除用户数据
         return new R(userService.removeByIds(ids));

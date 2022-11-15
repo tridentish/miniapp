@@ -28,11 +28,23 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return page;
     }
 
+    @Override
     public IPage<User> getClassPage(int current, int size, User user) {
         LambdaQueryWrapper<User> qw = new LambdaQueryWrapper<User>();
         qw.like(Strings.isNotEmpty(user.getStudentNum()),User::getStudentNum,user.getStudentNum());
         qw.like(Strings.isNotEmpty(user.getStudentName()),User::getStudentName,user.getStudentName());
         qw.eq(User::getClassNum,user.getClassNum());
+        IPage page =new Page(current,size);
+        userMapper.selectPage(page,qw);
+        return page;
+    }
+
+    @Override
+    public IPage<User> getAwardPage(int current, int size, User user) {
+        LambdaQueryWrapper<User> qw = new LambdaQueryWrapper<User>();
+        qw.like(Strings.isNotEmpty(user.getStudentNum()),User::getStudentNum,user.getStudentNum());
+        qw.like(Strings.isNotEmpty(user.getStudentName()),User::getStudentName,user.getStudentName());
+        qw.eq(User::getAward,user.getAward());
         IPage page =new Page(current,size);
         userMapper.selectPage(page,qw);
         return page;

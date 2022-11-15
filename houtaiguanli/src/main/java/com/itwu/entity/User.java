@@ -14,4 +14,5 @@ public class User {
     private String head;
     private Integer classNum;
     private Integer status;
+    private Integer award;
 }

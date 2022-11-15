@@ -7,4 +7,5 @@ import com.itwu.entity.User;
 
 public interface UserService extends IService<User> {
     IPage<User> getPage(int current,int size,User user);
+    IPage<User> getClassPage(int current,int size,User user);
 }

@@ -8,4 +8,5 @@ public class BackGround {
     private String position;
     private String path;
     private String name;
+    private String url;
 }

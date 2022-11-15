@@ -67,6 +67,12 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.51</version>
         </dependency>
+<!--        图片处理依赖-->
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>0.4.14</version>
+        </dependency>
 
     </dependencies>
 

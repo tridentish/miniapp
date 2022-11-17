@@ -1,6 +1,5 @@
 package com.itwu.config;
 
-import com.sun.java.accessibility.util.AccessibilityListenerList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -14,11 +13,6 @@ public class WebMVCConfig implements WebMvcConfigurer {
     @Autowired
     private LoginInterceptor loginInterceptor;
 
-    @Value("/jiuqi/upload/")
-    private String imagePath;
-
-    @Value("/upload/")
-    private String upload;
 
 
     @Override
@@ -27,7 +21,6 @@ public class WebMVCConfig implements WebMvcConfigurer {
         registry
                 .addMapping("/**")
                 .allowedOrigins("*")
-                //.allowCredentials(true)
                 .allowedMethods("GET","POST","PUT","DELETE","OPTION")
                 .maxAge(3600);
     }
@@ -38,12 +31,5 @@ public class WebMVCConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**");
     }
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        //addResourceHandler()里配置需要映射的文件夹
-        //addResourceLocations()配置文件夹在系统中的路径，使用绝对路径，格式为“file:你的路径”
-        //registry.addResourceHandler(upload + "**").addResourceLocations("file:C:\\jiuqi\\upload\\");
-        registry.addResourceHandler(upload + "**").addResourceLocations("file:" + imagePath);
-    }
 
 }

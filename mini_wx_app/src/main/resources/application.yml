@@ -26,5 +26,7 @@ mybatis-plus:
       #id??
       id-type: auto
 
-
+wxmini:
+  appid: 'wx51cb579a9d741d5d'
+  secret: '92bad52203b6b2aa57c6bd40b456af3b'
 

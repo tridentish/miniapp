@@ -10,6 +10,5 @@ public class ControllerTest {
     @GetMapping
     public String tttt(){
         return ("hello");
-
     }
 }
